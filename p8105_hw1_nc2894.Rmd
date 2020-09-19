@@ -64,6 +64,8 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 
 **Load the penguins dataset.**
 
+Code used:
+
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
@@ -78,4 +80,22 @@ The names of the variables in this dataset are `r names(penguins)`.
 In addition, the dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
 
 The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm. 
+
+
+**Make a scatterplot of flipper_length_mm(y) vs bill_length_mm(x)**
+
+Code used to generate the scatterplot below:
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+```
+
+
+**Export scatterplot to my project directory**
+
+Code used:
+
+```{r}
+ggsave("scatter_plot.pdf", width = 4, height = 4)
+```
 
